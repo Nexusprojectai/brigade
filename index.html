@@ -276,7 +276,7 @@ footer .fbrand svg{width:22px;height:22px}
       </div>
       <div class="hero-media reveal">
         <div class="frame">
-          <img src="img/brigade-hero.jpg" alt="Brigadeiros artesanais cobertos de granulado de chocolate" loading="eager" width="1024" height="1024">
+          <img src="https://images.unsplash.com/photo-1541599468348-e96984315921?auto=format&fit=crop&w=900&q=80" alt="Brigadeiros artesanais cobertos de granulado de chocolate" loading="eager" width="1024" height="1024">
         </div>
         <div class="selo"><b>4</b>unidades<br>por R$ 10</div>
       </div>
@@ -298,21 +298,21 @@ footer .fbrand svg{width:22px;height:22px}
       </div>
       <div class="grid-sabores">
         <article class="sabor reveal">
-          <div class="foto"><img src="img/brigadeiro-1.jpg" alt="Brigadeiro de chocolate com granulado" loading="lazy" width="900" height="900"></div>
+          <div class="foto"><img src="https://images.unsplash.com/photo-1511381939415-e44015466834?auto=format&fit=crop&w=900&q=80" alt="Brigadeiro de chocolate com granulado" loading="lazy" width="900" height="900"></div>
           <div class="txt">
             <h3><span class="ponto" style="background:#3B2317"></span>Chocolate belga</h3>
             <p>O clássico. Cacau intenso, granulado fino e ponto de brigadeiro de panela.</p>
           </div>
         </article>
         <article class="sabor reveal">
-          <div class="foto"><img src="img/brigadeiro-2.jpg" alt="Brigadeiro de pistache" loading="lazy" width="900" height="900"></div>
+          <div class="foto"><img src="https://images.unsplash.com/photo-1578985545062-69928b1d9587?auto=format&fit=crop&w=900&q=80" alt="Brigadeiro de pistache" loading="lazy" width="900" height="900"></div>
           <div class="txt">
             <h3><span class="ponto" style="background:#8A9A5B"></span>Pistache</h3>
             <p>Pasta de pistache pura e uma pitada de flor de sal. O favorito de quem prova.</p>
           </div>
         </article>
         <article class="sabor reveal">
-          <div class="foto"><img src="img/brigadeiro-3.jpg" alt="Brigadeiro de morango" loading="lazy" width="900" height="900"></div>
+          <div class="foto"><img src="https://images.unsplash.com/photo-1481391319762-47dff72954d9?auto=format&fit=crop&w=900&q=80" alt="Brigadeiro de morango" loading="lazy" width="900" height="900"></div>
           <div class="txt">
             <h3><span class="ponto" style="background:#C87A80"></span>Morango</h3>
             <p>Morango reduzido na panela, sem corante. Doce com acidez na medida.</p>
@@ -338,7 +338,7 @@ footer .fbrand svg{width:22px;height:22px}
             <a class="btn btn-primary" href="https://wa.me/5511999999999?text=Ol%C3%A1!%20Quero%20encomendar%20uma%20caixa%20de%20brigadeiros." target="_blank" rel="noopener">Fazer pedido</a>
           </div>
           <div class="foto">
-            <img src="img/brigade-flavors.jpg" alt="Brigadeiros de pistache e morango em forminhas de papel" loading="lazy" width="900" height="900">
+            <img src="https://images.unsplash.com/photo-1606312619070-d48b4c652a52?auto=format&fit=crop&w=900&q=80" alt="Brigadeiros de pistache e morango em forminhas de papel" loading="lazy" width="900" height="900">
           </div>
         </div>
       </div>
@@ -348,7 +348,7 @@ footer .fbrand svg{width:22px;height:22px}
   <section class="sobre" id="sobre">
     <div class="wrap sobre-grid">
       <div class="foto reveal">
-        <img src="img/brigadeiro-4.jpg" alt="Brigadeiros artesanais sobre mesa clara" loading="lazy" width="900" height="900">
+        <img src="https://images.unsplash.com/photo-1549007994-cb92caebd54b?auto=format&fit=crop&w=900&q=80" alt="Brigadeiros artesanais sobre mesa clara" loading="lazy" width="900" height="900">
       </div>
       <div class="reveal">
         <div class="eyebrow">Nossa história</div>
@@ -410,6 +410,14 @@ if ('IntersectionObserver' in window) {
 } else {
   alvos.forEach(function (a) { a.classList.add('on'); });
 }
+</script>
+<script>
+document.querySelectorAll('img').forEach(function (img) {
+  img.addEventListener('error', function () {
+    this.style.background = 'linear-gradient(135deg,#E8DCCA,#CBB79B)';
+    this.style.minHeight = '240px';
+  }, { once: true });
+});
 </script>
 </body>
 </html>
