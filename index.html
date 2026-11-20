@@ -1,0 +1,414 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Brigadeiro &amp; Cia — Brigadeiros Artesanais</title>
+<meta name="description" content="Brigadeiros artesanais feitos em pequenas fornadas. Chocolate belga, pistache e morango. Caixa com 4 unidades por R$ 10.">
+<link rel="icon" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 100 100'%3E%3Ccircle cx='50' cy='54' r='34' fill='%233B2317'/%3E%3Ccircle cx='50' cy='54' r='34' fill='none' stroke='%23241410' stroke-width='2'/%3E%3C/svg%3E">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Fraunces:ital,wght@0,300;0,500;0,600;1,300&family=Jost:wght@300;400;500&display=swap" rel="stylesheet">
+<style>
+:root{
+  --creme:#F5EDE0;
+  --creme-2:#FBF6ED;
+  --cacau:#3B2317;
+  --cacau-escuro:#241410;
+  --granulado:#5A3722;
+  --dourado:#B98A5A;
+  --texto:#4A3226;
+  --linha:rgba(59,35,23,.16);
+  --serif:"Fraunces",Georgia,serif;
+  --sans:"Jost","Helvetica Neue",Arial,sans-serif;
+}
+*{margin:0;padding:0;box-sizing:border-box}
+html{scroll-behavior:smooth}
+body{
+  background:var(--creme);
+  color:var(--texto);
+  font-family:var(--sans);
+  font-weight:300;
+  line-height:1.7;
+  -webkit-font-smoothing:antialiased;
+  overflow-x:hidden;
+}
+img{display:block;max-width:100%}
+.wrap{width:100%;max-width:1080px;margin:0 auto;padding:0 24px}
+
+/* ---------- NAV ---------- */
+.nav{
+  position:sticky;top:0;z-index:50;
+  display:flex;align-items:center;justify-content:space-between;
+  padding:16px 24px;
+  background:rgba(245,237,224,.86);
+  backdrop-filter:blur(12px);
+  border-bottom:1px solid var(--linha);
+}
+.brand{display:flex;align-items:center;gap:11px;text-decoration:none;color:var(--cacau)}
+.brand svg{width:34px;height:34px;flex:none}
+.brand .nome{font-family:var(--serif);font-weight:600;font-size:1.18rem;letter-spacing:.5px;line-height:1}
+.brand .nome span{display:block;font-family:var(--sans);font-weight:400;font-size:.56rem;letter-spacing:.32em;text-transform:uppercase;color:var(--dourado);margin-top:4px}
+.nav-links{display:flex;align-items:center;gap:28px}
+.nav-links a{color:var(--texto);text-decoration:none;font-size:.86rem;letter-spacing:.12em;text-transform:uppercase;transition:color .25s}
+.nav-links a:hover{color:var(--cacau)}
+.nav-cta{
+  font-size:.78rem;letter-spacing:.16em;text-transform:uppercase;
+  padding:11px 22px;border-radius:100px;background:var(--cacau);color:var(--creme-2)!important;
+  transition:background .3s,transform .3s;
+}
+.nav-cta:hover{background:var(--cacau-escuro)}
+@media(max-width:760px){
+  .nav-links{gap:14px}
+  .nav-links a:not(.nav-cta){display:none}
+  .nav-links a[href="#sabores"]{display:inline-block;font-size:.74rem;letter-spacing:.1em}
+}
+
+/* ---------- HERO ---------- */
+.hero{padding:64px 0 0}
+.hero-grid{display:grid;grid-template-columns:1fr 1fr;gap:64px;align-items:center}
+.eyebrow{
+  font-size:.72rem;letter-spacing:.36em;text-transform:uppercase;
+  color:var(--dourado);margin-bottom:22px;
+}
+h1{
+  font-family:var(--serif);font-weight:300;
+  font-size:clamp(2.5rem,5.4vw,4.1rem);
+  line-height:1.06;letter-spacing:-.02em;color:var(--cacau);
+  margin-bottom:26px;
+}
+h1 em{font-style:italic;color:var(--granulado)}
+.hero p.lead{font-size:1.06rem;max-width:42ch;color:var(--texto);margin-bottom:34px}
+.hero-actions{display:flex;gap:14px;flex-wrap:wrap;align-items:center}
+.btn{
+  display:inline-flex;align-items:center;gap:9px;
+  padding:15px 30px;border-radius:100px;text-decoration:none;
+  font-size:.84rem;letter-spacing:.14em;text-transform:uppercase;font-weight:400;
+  transition:transform .3s cubic-bezier(.2,.8,.2,1),box-shadow .3s,background .3s;
+}
+.btn-primary{background:var(--cacau);color:var(--creme-2);box-shadow:0 12px 30px -12px rgba(59,35,23,.6)}
+.btn-primary:hover{transform:translateY(-2px);background:var(--cacau-escuro);box-shadow:0 18px 36px -14px rgba(59,35,23,.7)}
+.btn-ghost{color:var(--cacau);border:1px solid var(--linha)}
+.btn-ghost:hover{border-color:var(--cacau);transform:translateY(-2px)}
+.hero-media{position:relative}
+.hero-media .frame{
+  border-radius:220px 220px 18px 18px;
+  overflow:hidden;
+  background:var(--creme-2);
+  box-shadow:0 40px 80px -40px rgba(59,35,23,.55);
+}
+.hero-media img{width:100%;height:100%;object-fit:cover;aspect-ratio:4/5}
+.hero-media .selo{
+  position:absolute;right:-14px;bottom:26px;
+  width:112px;height:112px;border-radius:50%;
+  background:var(--creme-2);border:1px solid var(--linha);
+  display:grid;place-content:center;text-align:center;
+  font-family:var(--serif);font-size:.76rem;line-height:1.35;color:var(--cacau);
+  letter-spacing:.04em;
+  box-shadow:0 18px 40px -20px rgba(59,35,23,.5);
+}
+.hero-media .selo b{display:block;font-size:1.32rem;font-weight:600}
+@media(max-width:860px){
+  .hero{padding-top:40px}
+  .hero-grid{grid-template-columns:1fr;gap:38px}
+  .hero-media{order:-1;max-width:420px;margin:0 auto}
+  .hero-media .frame{border-radius:170px 170px 14px 14px}
+  .hero-media .selo{right:6px;bottom:14px;width:96px;height:96px;font-size:.68rem}
+}
+
+/* ---------- FAIXA ---------- */
+.faixa{
+  margin-top:80px;padding:22px 0;
+  border-top:1px solid var(--linha);border-bottom:1px solid var(--linha);
+  overflow:hidden;white-space:nowrap;
+}
+.faixa .trilho{
+  display:inline-flex;gap:48px;
+  animation:desliza 34s linear infinite;
+  font-size:.74rem;letter-spacing:.3em;text-transform:uppercase;color:var(--granulado);
+}
+.faixa .trilho span{display:inline-flex;align-items:center;gap:48px}
+.faixa .trilho span::after{content:"✦";color:var(--dourado)}
+@keyframes desliza{from{transform:translateX(0)}to{transform:translateX(-50%)}}
+
+/* ---------- SEÇÕES ---------- */
+section{padding:96px 0}
+.sec-head{text-align:center;max-width:620px;margin:0 auto 56px}
+.sec-head .eyebrow{margin-bottom:16px}
+h2{
+  font-family:var(--serif);font-weight:300;
+  font-size:clamp(1.9rem,3.6vw,2.7rem);line-height:1.16;
+  letter-spacing:-.015em;color:var(--cacau);
+}
+.sec-head p{margin-top:16px;font-size:1rem;color:#6B5245}
+
+/* SABORES */
+.sabores{border-top:1px solid var(--linha)}
+.grid-sabores{display:grid;grid-template-columns:repeat(3,1fr);gap:26px}
+.sabor{
+  background:var(--creme-2);
+  border:1px solid rgba(59,35,23,.08);
+  border-radius:20px;overflow:hidden;
+  transition:transform .4s cubic-bezier(.2,.8,.2,1),box-shadow .4s;
+}
+.sabor:hover{transform:translateY(-6px);box-shadow:0 30px 50px -34px rgba(59,35,23,.55)}
+.sabor .foto{aspect-ratio:1/1;overflow:hidden;background:#EDE1CE}
+.sabor .foto img{width:100%;height:100%;object-fit:cover;transition:transform .8s cubic-bezier(.2,.8,.2,1)}
+.sabor:hover .foto img{transform:scale(1.06)}
+.sabor .txt{padding:24px 24px 28px}
+.sabor h3{font-family:var(--serif);font-size:1.32rem;font-weight:500;color:var(--cacau);margin-bottom:6px}
+.sabor p{font-size:.9rem;color:#75604F}
+.ponto{
+  display:inline-block;width:9px;height:9px;border-radius:50%;margin-right:8px;
+  vertical-align:middle;
+}
+@media(max-width:820px){.grid-sabores{grid-template-columns:1fr 1fr;gap:18px}}
+@media(max-width:520px){
+  .grid-sabores{grid-template-columns:1fr}
+  .sabor .txt{padding:20px}
+}
+
+/* CAIXA */
+.caixa{background:var(--cacau);color:var(--creme);border-radius:28px;overflow:hidden}
+.caixa .inner{
+  display:grid;grid-template-columns:1.05fr .95fr;align-items:stretch;
+}
+.caixa .copy{padding:64px 56px}
+.caixa .eyebrow{color:var(--dourado);margin-bottom:18px}
+.caixa h2{color:var(--creme)}
+.caixa p{color:rgba(245,237,224,.78);margin-top:18px;font-size:.98rem;max-width:38ch}
+.preco{
+  display:flex;align-items:baseline;gap:10px;
+  margin:34px 0 30px;
+}
+.preco .cifra{font-size:1rem;color:var(--dourado);font-feature-settings:"tnum"}
+.preco .valor{font-family:var(--serif);font-size:3.1rem;font-weight:600;line-height:1;color:var(--creme)}
+.preco .un{font-size:.8rem;letter-spacing:.16em;text-transform:uppercase;color:rgba(245,237,224,.6)}
+.caixa .btn-primary{background:var(--creme);color:var(--cacau);box-shadow:none}
+.caixa .btn-primary:hover{background:#fff;box-shadow:0 16px 30px -18px rgba(0,0,0,.6)}
+.caixa .foto{position:relative;min-height:100%}
+.caixa .foto img{position:absolute;inset:0;width:100%;height:100%;object-fit:cover}
+@media(max-width:860px){
+  .caixa .inner{grid-template-columns:1fr}
+  .caixa .copy{padding:44px 28px}
+  .caixa .foto{min-height:280px;order:-1}
+  .preco .valor{font-size:2.6rem}
+}
+
+/* HISTÓRIA */
+.sobre{border-top:1px solid var(--linha)}
+.sobre-grid{display:grid;grid-template-columns:1fr 1fr;gap:60px;align-items:center}
+.sobre-grid .foto{border-radius:18px;overflow:hidden;box-shadow:0 34px 60px -40px rgba(59,35,23,.5)}
+.sobre-grid .foto img{aspect-ratio:5/6;object-fit:cover;width:100%}
+.sobre h2{text-align:left;margin-bottom:20px}
+.sobre p{font-size:1rem;color:#6B5245;margin-bottom:16px;max-width:44ch}
+.assinatura{font-family:var(--serif);font-style:italic;font-size:1.16rem;color:var(--cacau);margin-top:26px}
+@media(max-width:820px){.sobre-grid{grid-template-columns:1fr;gap:32px}.sobre-grid .foto img{aspect-ratio:4/3}}
+
+/* CONTATO */
+.contato{text-align:center;border-top:1px solid var(--linha)}
+.contato h2{margin-bottom:16px}
+.contato p{color:#6B5245;max-width:46ch;margin:0 auto 32px}
+.contato .acoes{display:flex;justify-content:center;gap:14px;flex-wrap:wrap}
+.contato .nota{margin-top:26px;font-size:.8rem;letter-spacing:.14em;text-transform:uppercase;color:#9C8878}
+
+/* FOOTER */
+footer{
+  border-top:1px solid var(--linha);
+  padding:34px 0;
+  display:flex;justify-content:space-between;align-items:center;gap:16px;flex-wrap:wrap;
+  font-size:.78rem;color:#9C8878;letter-spacing:.1em;text-transform:uppercase;
+}
+footer .fbrand{display:flex;align-items:center;gap:9px}
+footer .fbrand svg{width:22px;height:22px}
+@media(max-width:600px){footer{justify-content:center;text-align:center}}
+
+/* REVEAL */
+.reveal{opacity:0;transform:translateY(26px);transition:opacity .9s ease,transform .9s cubic-bezier(.2,.8,.2,1)}
+.reveal.on{opacity:1;transform:none}
+@media(prefers-reduced-motion:reduce){
+  .reveal{opacity:1;transform:none;transition:none}
+  .faixa .trilho{animation:none}
+}
+</style>
+</head>
+<body>
+
+<header class="nav">
+  <a class="brand" href="#topo" aria-label="Brigadeiro &amp; Cia">
+    <svg viewBox="0 0 100 100" aria-hidden="true">
+      <circle cx="50" cy="55" r="33" fill="#3B2317"/>
+      <path d="M50 22c18.2 0 33 14.8 33 33S68.2 88 50 88 17 73.2 17 55s14.8-33 33-33z" fill="#3B2317"/>
+      <path d="M25 47c1.4-9 7.2-16.4 15.4-19.6-6.6 4.3-11 11.3-12.2 19.3z" fill="#6E4A31" opacity=".75"/>
+      <g fill="#F5EDE0">
+        <rect x="43" y="27" width="5" height="13" rx="2.5" transform="rotate(14 45.5 33.5)"/>
+        <rect x="58" y="33" width="5" height="13" rx="2.5" transform="rotate(-34 60.5 39.5)"/>
+        <rect x="30" y="45" width="5" height="13" rx="2.5" transform="rotate(52 32.5 51.5)"/>
+        <rect x="56" y="52" width="5" height="13" rx="2.5" transform="rotate(-12 58.5 58.5)"/>
+        <rect x="38" y="62" width="5" height="13" rx="2.5" transform="rotate(64 40.5 68.5)"/>
+        <rect x="63" y="64" width="5" height="13" rx="2.5" transform="rotate(24 65.5 70.5)"/>
+        <rect x="46" y="70" width="5" height="13" rx="2.5" transform="rotate(-6 48.5 76.5)"/>
+      </g>
+      <ellipse cx="38" cy="43" rx="6" ry="4.5" fill="#fff" opacity=".22" transform="rotate(-24 38 43)"/>
+    </svg>
+    <span class="nome">Brigadeiro &amp; Cia<span>Artesanal</span></span>
+  </a>
+  <nav class="nav-links">
+    <a href="#sabores">Sabores</a>
+    <a href="#caixa">A caixa</a>
+    <a href="#sobre">Sobre</a>
+    <a class="nav-cta" href="#contato">Encomendar</a>
+  </nav>
+</header>
+
+<main id="topo">
+  <section class="hero">
+    <div class="wrap hero-grid">
+      <div class="reveal">
+        <div class="eyebrow">Feito em pequenas fornadas</div>
+        <h1>Doce de verdade,<br><em>em um só gole.</em></h1>
+        <p class="lead">Brigadeiros enrolados à mão com chocolate belga, pistache e morango fresco. Pouca quantidade, muito cuidado.</p>
+        <div class="hero-actions">
+          <a class="btn btn-primary" href="https://wa.me/5511999999999?text=Ol%C3%A1!%20Quero%20encomendar%20uma%20caixa%20de%20brigadeiros." target="_blank" rel="noopener">Encomendar no WhatsApp</a>
+          <a class="btn btn-ghost" href="#sabores">Ver sabores</a>
+        </div>
+      </div>
+      <div class="hero-media reveal">
+        <div class="frame">
+          <img src="img/brigade-hero.jpg" alt="Brigadeiros artesanais cobertos de granulado de chocolate" loading="eager" width="1024" height="1024">
+        </div>
+        <div class="selo"><b>4</b>unidades<br>por R$ 10</div>
+      </div>
+    </div>
+    <div class="faixa" aria-hidden="true">
+      <div class="trilho">
+        <span>Chocolate belga</span><span>Pistache</span><span>Morango</span><span>Sem conservantes</span><span>Feito à mão</span>
+        <span>Chocolate belga</span><span>Pistache</span><span>Morango</span><span>Sem conservantes</span><span>Feito à mão</span>
+      </div>
+    </div>
+  </section>
+
+  <section class="sabores" id="sabores">
+    <div class="wrap">
+      <div class="sec-head reveal">
+        <div class="eyebrow">Três sabores</div>
+        <h2>Poucos, e feitos<br>como devem ser.</h2>
+        <p>Nada de catálogo infinito. Só o que a gente faz melhor.</p>
+      </div>
+      <div class="grid-sabores">
+        <article class="sabor reveal">
+          <div class="foto"><img src="img/brigadeiro-1.jpg" alt="Brigadeiro de chocolate com granulado" loading="lazy" width="900" height="900"></div>
+          <div class="txt">
+            <h3><span class="ponto" style="background:#3B2317"></span>Chocolate belga</h3>
+            <p>O clássico. Cacau intenso, granulado fino e ponto de brigadeiro de panela.</p>
+          </div>
+        </article>
+        <article class="sabor reveal">
+          <div class="foto"><img src="img/brigadeiro-2.jpg" alt="Brigadeiro de pistache" loading="lazy" width="900" height="900"></div>
+          <div class="txt">
+            <h3><span class="ponto" style="background:#8A9A5B"></span>Pistache</h3>
+            <p>Pasta de pistache pura e uma pitada de flor de sal. O favorito de quem prova.</p>
+          </div>
+        </article>
+        <article class="sabor reveal">
+          <div class="foto"><img src="img/brigadeiro-3.jpg" alt="Brigadeiro de morango" loading="lazy" width="900" height="900"></div>
+          <div class="txt">
+            <h3><span class="ponto" style="background:#C87A80"></span>Morango</h3>
+            <p>Morango reduzido na panela, sem corante. Doce com acidez na medida.</p>
+          </div>
+        </article>
+      </div>
+    </div>
+  </section>
+
+  <section id="caixa" style="padding-top:0">
+    <div class="wrap">
+      <div class="caixa reveal">
+        <div class="inner">
+          <div class="copy">
+            <div class="eyebrow">A encomenda</div>
+            <h2>Caixa com 4<br>brigadeiros.</h2>
+            <p>Você escolhe a combinação de sabores. Embalada em caixa de papel kraft com selo de cera.</p>
+            <div class="preco">
+              <span class="cifra">R$</span>
+              <span class="valor">10</span>
+              <span class="un">por caixa</span>
+            </div>
+            <a class="btn btn-primary" href="https://wa.me/5511999999999?text=Ol%C3%A1!%20Quero%20encomendar%20uma%20caixa%20de%20brigadeiros." target="_blank" rel="noopener">Fazer pedido</a>
+          </div>
+          <div class="foto">
+            <img src="img/brigade-flavors.jpg" alt="Brigadeiros de pistache e morango em forminhas de papel" loading="lazy" width="900" height="900">
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <section class="sobre" id="sobre">
+    <div class="wrap sobre-grid">
+      <div class="foto reveal">
+        <img src="img/brigadeiro-4.jpg" alt="Brigadeiros artesanais sobre mesa clara" loading="lazy" width="900" height="900">
+      </div>
+      <div class="reveal">
+        <div class="eyebrow">Nossa história</div>
+        <h2>Começou como<br>brincadeira de sábado.</h2>
+        <p>Uma panela, uma receita de família e a mania de acertar o ponto no olho. Hoje são pequenas fornadas semanais, feitas sob encomenda para garantir frescor.</p>
+        <p>Sem conservantes, sem atalhos. Só chocolate bom e tempo de panela.</p>
+        <div class="assinatura">— Brigaderia da família</div>
+      </div>
+    </div>
+  </section>
+
+  <section class="contato" id="contato">
+    <div class="wrap reveal">
+      <div class="eyebrow">Encomendas</div>
+      <h2>Vai querer a sua?</h2>
+      <p>Pedidos com 2 dias de antecedência. Entrega na região e retirada combinada pelo WhatsApp.</p>
+      <div class="acoes">
+        <a class="btn btn-primary" href="https://wa.me/5511999999999?text=Ol%C3%A1!%20Quero%20encomendar%20uma%20caixa%20de%20brigadeiros." target="_blank" rel="noopener">Chamar no WhatsApp</a>
+        <a class="btn btn-ghost" href="https://instagram.com" target="_blank" rel="noopener">Instagram</a>
+      </div>
+      <div class="nota">Feito à mão · Sem conservantes</div>
+    </div>
+  </section>
+</main>
+
+<footer>
+  <div class="wrap" style="display:flex;justify-content:space-between;align-items:center;gap:16px;flex-wrap:wrap;width:100%">
+    <div class="fbrand">
+      <svg viewBox="0 0 100 100" aria-hidden="true">
+        <circle cx="50" cy="55" r="33" fill="#3B2317"/>
+        <g fill="#F5EDE0">
+          <rect x="43" y="27" width="5" height="13" rx="2.5" transform="rotate(14 45.5 33.5)"/>
+          <rect x="58" y="33" width="5" height="13" rx="2.5" transform="rotate(-34 60.5 39.5)"/>
+          <rect x="30" y="45" width="5" height="13" rx="2.5" transform="rotate(52 32.5 51.5)"/>
+          <rect x="56" y="52" width="5" height="13" rx="2.5" transform="rotate(-12 58.5 58.5)"/>
+          <rect x="38" y="62" width="5" height="13" rx="2.5" transform="rotate(64 40.5 68.5)"/>
+        </g>
+      </svg>
+      <span>Brigadeiro &amp; Cia</span>
+    </div>
+    <span>© <span id="ano">2026</span> · Feito com chocolate e paciência</span>
+  </div>
+</footer>
+
+<script>
+document.getElementById('ano').textContent = new Date().getFullYear();
+
+var alvos = document.querySelectorAll('.reveal');
+if ('IntersectionObserver' in window) {
+  var obs = new IntersectionObserver(function (entradas) {
+    entradas.forEach(function (e) {
+      if (e.isIntersecting) {
+        e.target.classList.add('on');
+        obs.unobserve(e.target);
+      }
+    });
+  }, { threshold: 0.15, rootMargin: '0px 0px -60px 0px' });
+  alvos.forEach(function (a) { obs.observe(a); });
+} else {
+  alvos.forEach(function (a) { a.classList.add('on'); });
+}
+</script>
+</body>
+</html>
