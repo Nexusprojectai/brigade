@@ -74,9 +74,12 @@ img{display:block;max-width:100%}
 }
 h1{
   font-family:var(--serif);font-weight:300;
-  font-size:clamp(2.5rem,5.4vw,4.1rem);
-  line-height:1.06;letter-spacing:-.02em;color:var(--cacau);
+  font-size:clamp(1.6rem, 2.2vw, 2.1rem);
+  line-height:1.15;letter-spacing:-.02em;color:var(--cacau);
   margin-bottom:26px;
+}
+@media(min-width:960px){
+  h1{white-space:nowrap}
 }
 h1 em{font-style:italic;color:var(--granulado)}
 .hero p.lead{font-size:1.06rem;max-width:42ch;color:var(--texto);margin-bottom:34px}
