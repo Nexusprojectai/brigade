@@ -91,30 +91,20 @@ h1 em{font-style:italic;color:var(--granulado)}
 .btn-primary:hover{transform:translateY(-2px);background:var(--cacau-escuro);box-shadow:0 18px 36px -14px rgba(59,35,23,.7)}
 .btn-ghost{color:var(--cacau);border:1px solid var(--linha)}
 .btn-ghost:hover{border-color:var(--cacau);transform:translateY(-2px)}
-.hero-media{position:relative}
-.hero-media .frame{
-  border-radius:220px 220px 18px 18px;
-  overflow:hidden;
-  background:var(--creme-2);
-  box-shadow:0 40px 80px -40px rgba(59,35,23,.55);
+.hero-media{position:relative;display:grid;place-items:center}
+.logo-lua{position:relative;width:100%;max-width:440px;aspect-ratio:1/1;display:grid;place-items:center}
+.logo-lua .halo{
+  position:absolute;inset:-6%;border-radius:50%;
+  background:radial-gradient(circle at 50% 45%,rgba(214,178,124,.55) 0%,rgba(214,178,124,.14) 46%,rgba(214,178,124,0) 70%);
+  filter:blur(6px);
 }
-.hero-media img{width:100%;height:100%;object-fit:cover;aspect-ratio:4/5}
-.hero-media .selo{
-  position:absolute;right:-14px;bottom:26px;
-  width:112px;height:112px;border-radius:50%;
-  background:var(--creme-2);border:1px solid var(--linha);
-  display:grid;place-content:center;text-align:center;
-  font-family:var(--serif);font-size:.76rem;line-height:1.35;color:var(--cacau);
-  letter-spacing:.04em;
-  box-shadow:0 18px 40px -20px rgba(59,35,23,.5);
+.logo-lua img{
+  position:relative;width:100%;height:100%;object-fit:contain;
+  border-radius:50%;
+  box-shadow:0 42px 70px -38px rgba(59,35,23,.75),0 0 0 1px rgba(59,35,23,.10),0 0 0 12px rgba(255,255,255,.35);
 }
-.hero-media .selo b{display:block;font-size:1.32rem;font-weight:600}
 @media(max-width:860px){
-  .hero{padding-top:40px}
-  .hero-grid{grid-template-columns:1fr;gap:38px}
-  .hero-media{order:-1;max-width:420px;margin:0 auto}
-  .hero-media .frame{border-radius:170px 170px 14px 14px}
-  .hero-media .selo{right:6px;bottom:14px;width:96px;height:96px;font-size:.68rem}
+  .hero-media{order:-1;max-width:330px;margin:0 auto}
 }
 
 /* ---------- FAIXA ---------- */
@@ -153,9 +143,14 @@ h2{
   transition:transform .4s cubic-bezier(.2,.8,.2,1),box-shadow .4s;
 }
 .sabor:hover{transform:translateY(-6px);box-shadow:0 30px 50px -34px rgba(59,35,23,.55)}
-.sabor .foto{aspect-ratio:1/1;overflow:hidden;background:#EDE1CE}
-.sabor .foto img{width:100%;height:100%;object-fit:cover;transition:transform .8s cubic-bezier(.2,.8,.2,1)}
-.sabor:hover .foto img{transform:scale(1.06)}
+.sabor .foto{aspect-ratio:1/1;overflow:hidden;display:grid;place-items:center;position:relative;background:#F1E5D2}
+.sabor .foto::after{content:"";position:absolute;left:50%;bottom:13%;transform:translateX(-50%);width:56%;height:9%;border-radius:50%;background:rgba(59,35,23,.13);filter:blur(9px)}
+.sabor .foto img{width:82%;height:82%;object-fit:contain;position:relative;z-index:1;filter:drop-shadow(0 16px 18px rgba(59,35,23,.22));transition:transform .8s cubic-bezier(.2,.8,.2,1)}
+
+.sabor:hover .foto img{transform:translateY(-5px) scale(1.04)}
+
+
+
 .sabor .txt{padding:24px 24px 28px}
 .sabor h3{font-family:var(--serif);font-size:1.32rem;font-weight:500;color:var(--cacau);margin-bottom:6px}
 .sabor p{font-size:.9rem;color:#75604F}
@@ -195,16 +190,6 @@ h2{
   .caixa .foto{min-height:280px;order:-1}
   .preco .valor{font-size:2.6rem}
 }
-
-/* HISTÓRIA */
-.sobre{border-top:1px solid var(--linha)}
-.sobre-grid{display:grid;grid-template-columns:1fr 1fr;gap:60px;align-items:center}
-.sobre-grid .foto{border-radius:18px;overflow:hidden;box-shadow:0 34px 60px -40px rgba(59,35,23,.5)}
-.sobre-grid .foto img{aspect-ratio:5/6;object-fit:cover;width:100%}
-.sobre h2{text-align:left;margin-bottom:20px}
-.sobre p{font-size:1rem;color:#6B5245;margin-bottom:16px;max-width:44ch}
-.assinatura{font-family:var(--serif);font-style:italic;font-size:1.16rem;color:var(--cacau);margin-top:26px}
-@media(max-width:820px){.sobre-grid{grid-template-columns:1fr;gap:32px}.sobre-grid .foto img{aspect-ratio:4/3}}
 
 /* CONTATO */
 .contato{text-align:center;border-top:1px solid var(--linha)}
@@ -257,7 +242,6 @@ footer .fbrand svg{width:22px;height:22px}
   <nav class="nav-links">
     <a href="#sabores">Sabores</a>
     <a href="#caixa">A caixa</a>
-    <a href="#sobre">Sobre</a>
     <a class="nav-cta" href="#contato">Encomendar</a>
   </nav>
 </header>
@@ -275,11 +259,11 @@ footer .fbrand svg{width:22px;height:22px}
         </div>
       </div>
       <div class="hero-media reveal">
-        <div class="frame">
-          <img src="https://images.unsplash.com/photo-1541599468348-e96984315921?auto=format&fit=crop&w=900&q=80" alt="Brigadeiros artesanais cobertos de granulado de chocolate" loading="eager" width="1024" height="1024">
+        <div class="logo-lua">
+          <span class="halo" aria-hidden="true"></span>
+          <img src="img/logo-circle.png" alt="Logo Brigadê" loading="eager" width="440" height="440">
         </div>
-        <div class="selo"><b>4</b>unidades<br>por R$ 10</div>
-      </div>
+      </div></div>
     </div>
     <div class="faixa" aria-hidden="true">
       <div class="trilho">
@@ -298,21 +282,21 @@ footer .fbrand svg{width:22px;height:22px}
       </div>
       <div class="grid-sabores">
         <article class="sabor reveal">
-          <div class="foto"><img src="https://images.unsplash.com/photo-1511381939415-e44015466834?auto=format&fit=crop&w=900&q=80" alt="Brigadeiro de chocolate com granulado" loading="lazy" width="900" height="900"></div>
+          <div class="foto"><img src="img/brigadeiro_de_chocolate.png" alt="Brigadeiro de chocolate com granulado" loading="lazy" width="900" height="900"></div>
           <div class="txt">
             <h3><span class="ponto" style="background:#3B2317"></span>Chocolate belga</h3>
             <p>O clássico. Cacau intenso, granulado fino e ponto de brigadeiro de panela.</p>
           </div>
         </article>
         <article class="sabor reveal">
-          <div class="foto"><img src="https://images.unsplash.com/photo-1578985545062-69928b1d9587?auto=format&fit=crop&w=900&q=80" alt="Brigadeiro de pistache" loading="lazy" width="900" height="900"></div>
+          <div class="foto"><img src="img/brigadeiro_de_pistache.png" alt="Brigadeiro de pistache" loading="lazy" width="900" height="900"></div>
           <div class="txt">
             <h3><span class="ponto" style="background:#8A9A5B"></span>Pistache</h3>
             <p>Pasta de pistache pura e uma pitada de flor de sal. O favorito de quem prova.</p>
           </div>
         </article>
         <article class="sabor reveal">
-          <div class="foto"><img src="https://images.unsplash.com/photo-1481391319762-47dff72954d9?auto=format&fit=crop&w=900&q=80" alt="Brigadeiro de morango" loading="lazy" width="900" height="900"></div>
+          <div class="foto"><img src="img/brigadeiro_de_morango.png" alt="Brigadeiro de morango" loading="lazy" width="900" height="900"></div>
           <div class="txt">
             <h3><span class="ponto" style="background:#C87A80"></span>Morango</h3>
             <p>Morango reduzido na panela, sem corante. Doce com acidez na medida.</p>
@@ -338,27 +322,14 @@ footer .fbrand svg{width:22px;height:22px}
             <a class="btn btn-primary" href="https://wa.me/5511999999999?text=Ol%C3%A1!%20Quero%20encomendar%20uma%20caixa%20de%20brigadeiros." target="_blank" rel="noopener">Fazer pedido</a>
           </div>
           <div class="foto">
-            <img src="img/Promo.jpg" alt="Brigadeiros de pistache e morango em forminhas de papel" loading="lazy" width="900" height="900">
+            <img src="img/todos.jpeg" alt="Brigadeiros de pistache e morango em forminhas de papel" loading="lazy" width="900" height="900">
           </div>
         </div>
       </div>
     </div>
   </section>
 
-  <section class="sobre" id="sobre">
-    <div class="wrap sobre-grid">
-      <div class="foto reveal">
-        <img src="https://images.unsplash.com/photo-1549007994-cb92caebd54b?auto=format&fit=crop&w=900&q=80" alt="Brigadeiros artesanais sobre mesa clara" loading="lazy" width="900" height="900">
-      </div>
-      <div class="reveal">
-        <div class="eyebrow">Nossa história</div>
-        <h2>Começou como<br>brincadeira de sábado.</h2>
-        <p>Uma panela, uma receita de família e a mania de acertar o ponto no olho. Hoje são pequenas fornadas semanais, feitas sob encomenda para garantir frescor.</p>
-        <p>Sem conservantes, sem atalhos. Só chocolate bom e tempo de panela.</p>
-        <div class="assinatura">— Brigaderia da família</div>
-      </div>
-    </div>
-  </section>
+  
 
   <section class="contato" id="contato">
     <div class="wrap reveal">
