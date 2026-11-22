@@ -67,21 +67,21 @@ img{display:block;max-width:100%}
 
 /* ---------- HERO ---------- */
 .hero{padding:64px 0 0}
-.hero-grid{display:grid;grid-template-columns:1fr 1fr;gap:64px;align-items:center}
+.hero-grid{display:grid;grid-template-columns:1.45fr .55fr;gap:48px;align-items:center}
 .eyebrow{
   font-size:.72rem;letter-spacing:.36em;text-transform:uppercase;
   color:var(--dourado);margin-bottom:22px;
 }
 h1{
   font-family:var(--serif);font-weight:300;
-  font-size:clamp(1.6rem, 2.2vw, 2.1rem);
-  line-height:1.15;letter-spacing:-.02em;color:var(--cacau);
+  font-size:clamp(1.7rem,2.6vw,2.75rem);
+  line-height:1.12;letter-spacing:-.02em;color:var(--cacau);
   margin-bottom:26px;
 }
+h1 em{font-style:italic;color:var(--granulado)}
 @media(min-width:960px){
   h1{white-space:nowrap}
 }
-h1 em{font-style:italic;color:var(--granulado)}
 .hero p.lead{font-size:1.06rem;max-width:42ch;color:var(--texto);margin-bottom:34px}
 .hero-actions{display:flex;gap:14px;flex-wrap:wrap;align-items:center}
 .btn{
@@ -89,6 +89,28 @@ h1 em{font-style:italic;color:var(--granulado)}
   padding:15px 30px;border-radius:100px;text-decoration:none;
   font-size:.84rem;letter-spacing:.14em;text-transform:uppercase;font-weight:400;
   transition:transform .3s cubic-bezier(.2,.8,.2,1),box-shadow .3s,background .3s;
+}
+.btn-primary{background:var(--cacau);color:var(--creme-2);box-shadow:0 12px 30px -12px rgba(59,35,23,.6)}
+.btn-primary:hover{transform:translateY(-2px);background:var(--cacau-escuro);box-shadow:0 18px 36px -14px rgba(59,35,23,.7)}
+.btn-ghost{color:var(--cacau);border:1px solid var(--linha)}
+.btn-ghost:hover{border-color:var(--cacau);transform:translateY(-2px)}
+.hero-media{position:relative;display:grid;place-items:center}
+.logo-lua{position:relative;width:100%;max-width:520px;display:grid;place-items:center}
+.logo-lua .halo{
+  position:absolute;inset:-7% -9%;border-radius:34px;
+  background:radial-gradient(ellipse at 50% 45%,rgba(214,178,124,.5) 0%,rgba(214,178,124,.12) 50%,rgba(214,178,124,0) 72%);
+  filter:blur(10px);
+}
+.logo-lua img{
+  position:relative;width:100%;height:auto;max-width:100%;
+  display:block;
+  object-fit:contain;object-position:center;
+  border-radius:50%;
+  box-shadow:0 46px 80px -42px rgba(59,35,23,.8),0 0 0 10px rgba(255,255,255,.5),0 0 0 11px rgba(59,35,23,.08);
+}
+@media(max-width:860px){
+  .hero-grid{grid-template-columns:1fr;gap:38px}
+  .hero-media{order:-1;max-width:330px;margin:0 auto}
 }
 .btn-primary{background:var(--cacau);color:var(--creme-2);box-shadow:0 12px 30px -12px rgba(59,35,23,.6)}
 .btn-primary:hover{transform:translateY(-2px);background:var(--cacau-escuro);box-shadow:0 18px 36px -14px rgba(59,35,23,.7)}
